@@ -14,5 +14,5 @@ public class TransactionRecord
 
 	public Currency Currency { get; init; }
 
-	public string PaymentType { get; init; }
+	public PaymentType PaymentType { get; init; }
 }

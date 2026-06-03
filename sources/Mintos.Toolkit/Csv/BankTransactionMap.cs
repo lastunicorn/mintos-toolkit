@@ -26,6 +26,7 @@ internal sealed class BankTransactionMap : ClassMap<TransactionRecord>
             .TypeConverter<CurrencyConverter>();
 
         Map(x => x.PaymentType)
-            .Name("Payment Type");
+            .Name("Payment Type")
+            .TypeConverter<PaymentTypeConverter>();
     }
 }
