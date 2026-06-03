@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Common/">
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Project Path="Mintos.Toolkit.Demo/Mintos.Toolkit.Demo.csproj" />
+  <Project Path="Mintos.Toolkit/Mintos.Toolkit.csproj" />
+</Solution>
