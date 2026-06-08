@@ -58,7 +58,6 @@ foreach (TransactionRecord transaction in document.Transactions)
 Each row is mapped to:
 
 - TBD
-  
 
 ## Demo Project
 
