@@ -1,6 +1,11 @@
 Mintos Toolkit
 ================================================================================
 
+v1.1.0
+--------------------------------------------------------------------------------
+[bugfix] Fixed stream access bug when loading document async.
+[change] Renamed the TransactionsDocument to StatementDocument.
+
 v1.0.0
 --------------------------------------------------------------------------------
 [new] Added TransactionsDocument to parse csv transaction files.
