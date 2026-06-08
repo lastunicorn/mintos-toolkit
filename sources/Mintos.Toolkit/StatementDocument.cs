@@ -2,11 +2,11 @@
 
 namespace DustInTheWind.Mintos.Toolkit;
 
-public class TransactionsDocument
+public class StatementDocument
 {
 	public List<TransactionRecord> Transactions { get; } = [];
 
-	public static Task<TransactionsDocument> LoadFromFileAsync(string filePath)
+	public static Task<StatementDocument> LoadFromFileAsync(string filePath)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
@@ -25,7 +25,7 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(string csv)
+	public static Task<StatementDocument> LoadAsync(string csv)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(csv);
 
@@ -44,7 +44,7 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(Stream stream)
+	public static Task<StatementDocument> LoadAsync(Stream stream)
 	{
 		ArgumentNullException.ThrowIfNull(stream);
 
@@ -63,7 +63,7 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(FileInfo fileInfo)
+	public static Task<StatementDocument> LoadAsync(FileInfo fileInfo)
 	{
 		ArgumentNullException.ThrowIfNull(fileInfo);
 
@@ -82,31 +82,31 @@ public class TransactionsDocument
 		}
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(StreamReader streamReader)
+	public static Task<StatementDocument> LoadAsync(StreamReader streamReader)
 	{
 		ArgumentNullException.ThrowIfNull(streamReader);
 
 		return LoadInternalAsync(streamReader);
 	}
 
-	public static Task<TransactionsDocument> LoadAsync(TextReader textReader)
+	public static Task<StatementDocument> LoadAsync(TextReader textReader)
 	{
 		ArgumentNullException.ThrowIfNull(textReader);
 
 		return LoadInternalAsync(textReader);
 	}
 
-	private static async Task<TransactionsDocument> LoadInternalAsync(TextReader textReader)
+	private static async Task<StatementDocument> LoadInternalAsync(TextReader textReader)
 	{
 		try
 		{
-			TransactionsCsvDocument transactionsCsvDocument = new(textReader);
-			TransactionsDocument transactionsDocument = new();
+			CsvStatementDocument csvStatementDocument = new(textReader);
+			StatementDocument statementDocument = new();
 
-			await foreach (TransactionRecord transactionRecord in transactionsCsvDocument.ReadTransactions())
-				transactionsDocument.Transactions.Add(transactionRecord);
-        
-			return transactionsDocument;
+			await foreach (TransactionRecord transactionRecord in csvStatementDocument.ReadTransactions())
+				statementDocument.Transactions.Add(transactionRecord);
+
+			return statementDocument;
 		}
 		catch (DocumentLoadException)
 		{

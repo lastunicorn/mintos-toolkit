@@ -3,7 +3,7 @@ namespace DustInTheWind.Mintos.Toolkit;
 public class TransactionRecord
 {
 	public DateTime Date { get; init; }
-	
+
 	public string TransactionId { get; init; }
 
 	public string Details { get; init; }

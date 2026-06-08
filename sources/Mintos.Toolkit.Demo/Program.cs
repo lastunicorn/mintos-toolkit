@@ -7,11 +7,11 @@ internal static class Program
 {
 	public static async Task Main(string[] args)
 	{
-		const string fileName = "transactions.csv";
+		const string fileName = "statement.csv";
 
 		try
 		{
-			TransactionsDocument document = await TransactionsDocument.LoadFromFileAsync(fileName);
+			StatementDocument document = await StatementDocument.LoadFromFileAsync(fileName);
 
 			DataGrid dataGrid = Display(document);
 			dataGrid.Display();
@@ -28,7 +28,7 @@ internal static class Program
 		}
 	}
 
-	private static DataGrid Display(TransactionsDocument document)
+	private static DataGrid Display(StatementDocument document)
 	{
 		DataGrid dataGrid = new()
 		{
