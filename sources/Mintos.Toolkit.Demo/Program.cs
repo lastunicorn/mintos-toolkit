@@ -48,8 +48,8 @@ internal static class Program
 		foreach (TransactionRecord transaction in document)
 			dataGrid.Rows.Add(
 				transaction.Date.ToString("yyyy-MM-dd HH:mm:ss"),
-				transaction.TransactionId,
-				transaction.Details,
+				transaction.TransactionId?.Truncate(30),
+				transaction.Details?.Truncate(30),
 				transaction.Turnover.ToString(),
 				transaction.Balance.ToString(),
 				transaction.Currency,
