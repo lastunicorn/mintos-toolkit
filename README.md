@@ -45,15 +45,15 @@ You will get a CSV containing transaction rows that can be parsed with this tool
 ```csharp
 using DustInTheWind.Mintos.Toolkit;
 
-TransactionsDocument document = TransactionsDocument.LoadFromFile("transactions.csv");
+StatementDocument document = StatementDocument.LoadFromFile("statement.csv");
 
-foreach (TransactionRecord transaction in document.Transactions)
+foreach (TransactionRecord transaction in document)
 {
 	...
 }
 ```
 
-## `Transaction` Record
+## CSV Document
 
 Each row is mapped to:
 

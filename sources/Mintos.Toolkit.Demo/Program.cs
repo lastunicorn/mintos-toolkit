@@ -34,7 +34,7 @@ internal static class Program
 		{
 			Title = "Transactions",
 			BorderTemplate = BorderTemplate.PlusMinusBorderTemplate,
-			Footer = $"Count: {document.Transactions.Count}"
+			Footer = $"Count: {document.Count}"
 		};
 
 		dataGrid.Columns.Add("Date");
@@ -45,7 +45,7 @@ internal static class Program
 		dataGrid.Columns.Add("Currency", HorizontalAlignment.Right);
 		dataGrid.Columns.Add("Payment Type");
 
-		foreach (TransactionRecord transaction in document.Transactions)
+		foreach (TransactionRecord transaction in document)
 			dataGrid.Rows.Add(
 				transaction.Date.ToString("yyyy-MM-dd HH:mm:ss"),
 				transaction.TransactionId,
