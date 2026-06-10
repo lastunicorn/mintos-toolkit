@@ -8,8 +8,6 @@ Mintos is a loan investment platform.
 
 - https://www.mintos.com
 
-The package is published as `DustInTheWind.Mintos.Toolkit`.
-
 ## Installation
 
 Package Manager:
