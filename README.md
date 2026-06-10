@@ -1,5 +1,7 @@
 # Mintos Toolkit
 
+[![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/lastunicorn/mintos-toolkit) [![NuGet Version](https://img.shields.io/nuget/v/DustInTheWind.Mintos.Toolkit?logo=nuget)](https://www.nuget.org/packages/DustInTheWind.Mintos.Toolkit) [![NuGet Downloads](https://img.shields.io/nuget/dt/DustInTheWind.Mintos.Toolkit?logo=nuget)](https://www.nuget.org/packages/DustInTheWind.Mintos.Toolkit)
+
 `Mintos Toolkit` is a .NET library that helps working with files exported from Mintos.
 
 Mintos is a loan investment platform.
@@ -25,6 +27,10 @@ dotnet add package DustInTheWind.Mintos.Toolkit
 ## Runtime Requirements
 
 - Library target framework: `.NET 8.0` (`net8.0`)
+
+## Features
+
+- **Parse Mintos Statement Documents** - Load and parse CSV files exported directly from the Mintos platform
 
 ## Quick Start
 
@@ -71,7 +77,11 @@ Each row is mapped to a `TransactionRecord` with the following columns:
 
 The repository includes a sample CLI project in `sources/Mintos.Toolkit.Demo` that demonstrates:
 
-- reading `transactions.csv`
+- reading `statement.csv`
 - printing parsed data.
 
 You can use this project as a reference implementation for your own importer/exporter tools.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
