@@ -30,7 +30,7 @@ internal class CsvStatementDocument
 	public string[] ReadHeaders()
 	{
 		if (state != CsvDocumentReadState.HeaderRow)
-			throw new InvalidOperationException("Header row was already read.");
+			throw new HeaderAlreadyLoadedException();
 
 		try
 		{

@@ -3,6 +3,12 @@ using DustInTheWind.Mintos.Toolkit.Csv;
 
 namespace DustInTheWind.Mintos.Toolkit;
 
+/// <summary>
+/// Represents a Mintos statement document.
+/// </summary>
+/// <remarks>
+/// The structure of the csv file is the one that is exported from the Mintos app (2026).
+/// </remarks>
 public class StatementDocument : Collection<TransactionRecord>
 {
 	public static async Task<StatementDocument> LoadFromFileAsync(string filePath)

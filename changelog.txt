@@ -1,11 +1,17 @@
 Mintos Toolkit
 ================================================================================
 
+v1.2.0
+--------------------------------------------------------------------------------
+[new   ] Exposed KnownValues property in Currency and PaymentType.
+
+
 v1.1.0
 --------------------------------------------------------------------------------
 [bugfix] Fixed stream access bug when loading document async.
 [change] Renamed the TransactionsDocument to StatementDocument.
 
+
 v1.0.0
 --------------------------------------------------------------------------------
-[new] Added TransactionsDocument to parse csv transaction files.
+[new   ] Added TransactionsDocument to parse csv transaction files.

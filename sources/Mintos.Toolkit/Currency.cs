@@ -10,13 +10,13 @@ public sealed record class Currency
 	public static readonly Currency USD = new("USD");
 	public static readonly Currency GBP = new("GBP");
 
-	private static readonly Dictionary<string, Currency> KnownValues = new(StringComparer.OrdinalIgnoreCase)
-	{
-		[RON.Value] = RON,
-		[EUR.Value] = EUR,
-		[USD.Value] = USD,
-		[GBP.Value] = GBP
-	};
+	public static readonly IReadOnlyCollection<Currency> KnownValues =
+	[
+		RON,
+		EUR,
+		USD,
+		GBP
+	];
 
 	public string Value { get; }
 

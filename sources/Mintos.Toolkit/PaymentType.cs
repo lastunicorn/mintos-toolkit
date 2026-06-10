@@ -1,5 +1,8 @@
 namespace DustInTheWind.Mintos.Toolkit;
 
+/// <summary>
+/// Value object that represents a transaction payment type.
+/// </summary>
 public sealed record class PaymentType
 {
 	public static readonly PaymentType CashOutShareIncomeToSeller = new("Cash out share income to seller");
@@ -17,23 +20,23 @@ public sealed record class PaymentType
 	public static readonly PaymentType SecondaryMarketTransaction = new("Secondary market transaction");
 	public static readonly PaymentType TaxWithholding = new("Tax withholding");
 
-	private static readonly Dictionary<string, PaymentType> KnownValues = new(StringComparer.OrdinalIgnoreCase)
-	{
-		[CashOutShareIncomeToSeller.Value] = CashOutShareIncomeToSeller,
-		[TransitRebuyDelayedInterest.Value] = TransitRebuyDelayedInterest,
-		[Deposits.Value] = Deposits,
-		[Interest.Value] = Interest,
-		[LoanRepurchaseInterest.Value] = LoanRepurchaseInterest,
-		[PendingPaymentsInterest.Value] = PendingPaymentsInterest,
-		[Investment.Value] = Investment,
-		[LateFee.Value] = LateFee,
-		[MintosCoreFee.Value] = MintosCoreFee,
-		[MintosCustomLoansFee.Value] = MintosCustomLoansFee,
-		[Principal.Value] = Principal,
-		[LoanRepurchasePrincipal.Value] = LoanRepurchasePrincipal,
-		[SecondaryMarketTransaction.Value] = SecondaryMarketTransaction,
-		[TaxWithholding.Value] = TaxWithholding
-	};
+	public static readonly IReadOnlyCollection<PaymentType> KnownValues =
+	[
+		CashOutShareIncomeToSeller,
+		TransitRebuyDelayedInterest,
+		Deposits,
+		Interest,
+		LoanRepurchaseInterest,
+		PendingPaymentsInterest,
+		Investment,
+		LateFee,
+		MintosCoreFee,
+		MintosCustomLoansFee,
+		Principal,
+		LoanRepurchasePrincipal,
+		SecondaryMarketTransaction,
+		TaxWithholding
+	];
 
 	public string Value { get; }
 

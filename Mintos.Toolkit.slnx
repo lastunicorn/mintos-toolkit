@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="sources/Mintos.Toolkit.Demo/Mintos.Toolkit.Demo.csproj" />
+  <Project Path="sources/Mintos.Toolkit/Mintos.Toolkit.csproj" />
+</Solution>

@@ -1,5 +1,8 @@
 namespace DustInTheWind.Mintos.Toolkit;
 
+/// <summary>
+/// Represents a transaction.
+/// </summary>
 public class TransactionRecord
 {
 	public DateTime Date { get; init; }
