@@ -53,11 +53,19 @@ foreach (TransactionRecord transaction in document)
 }
 ```
 
-## CSV Document
+## CSV Statement Document
 
-Each row is mapped to:
+Each row is mapped to a `TransactionRecord` with the following columns:
 
-- TBD
+| CSV Column      | Type     | TransactionRecord Property | Description                                         |
+|-----------------|----------|--------------------------|-----------------------------------------------------|
+| `Date`          | DateTime | `Date`                   | The date when the transaction occurred.             |
+| `Transaction ID:`| string   | `TransactionId`         | A unique identifier for the transaction.            |
+| `Details`       | string   | `Details`                | Additional details or description of the transaction.|
+| `Turnover`      | decimal   | `Turnover`               | The transaction amount.                             |
+| `Balance`       | decimal   | `Balance`                | The account balance after the transaction.         |
+| `Currency`      | string   | `Currency`               | The currency code (e.g., EUR, USD).                |
+| `Payment Type`  | string   | `PaymentType`            | The type of payment (e.g., Deposit, Withdrawal, Interest).|
 
 ## Demo Project
 
