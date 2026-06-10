@@ -1,6 +1,6 @@
 # Mintos Toolkit
 
-[![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/lastunicorn/mintos-toolkit) [![GitHub Build]([https://img.shields.io/badge/github-repo-blue](https://img.shields.io/github/actions/workflow/status/lastunicorn/mintos-toolkit/build-master.yml)?logo=github)]([https://github.com/lastunicorn/mintos-toolkit](https://github.com/lastunicorn/mintos-toolkit/actions/workflows/build-master.yml))
+[![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/lastunicorn/mintos-toolkit) [![GitHub Build](https://img.shields.io/github/actions/workflow/status/lastunicorn/mintos-toolkit/build-master.yml?logo=github)](https://github.com/lastunicorn/mintos-toolkit/actions/workflows/build-master.yml)
 
 [![NuGet Version](https://img.shields.io/nuget/v/DustInTheWind.Mintos.Toolkit?logo=nuget)](https://www.nuget.org/packages/DustInTheWind.Mintos.Toolkit) [![NuGet Downloads](https://img.shields.io/nuget/dt/DustInTheWind.Mintos.Toolkit?logo=nuget)](https://www.nuget.org/packages/DustInTheWind.Mintos.Toolkit)
 
