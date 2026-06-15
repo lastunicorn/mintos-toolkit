@@ -19,6 +19,7 @@ public sealed record class PaymentType
 	public static readonly PaymentType LoanRepurchasePrincipal = new("Principal received from loan repurchase");
 	public static readonly PaymentType SecondaryMarketTransaction = new("Secondary market transaction");
 	public static readonly PaymentType TaxWithholding = new("Tax withholding");
+	public static readonly PaymentType Withdrawal = new("Withdrawal");
 
 	public static readonly IReadOnlyCollection<PaymentType> KnownValues =
 	[
@@ -35,7 +36,8 @@ public sealed record class PaymentType
 		Principal,
 		LoanRepurchasePrincipal,
 		SecondaryMarketTransaction,
-		TaxWithholding
+		TaxWithholding,
+		Withdrawal
 	];
 
 	public string Value { get; }
