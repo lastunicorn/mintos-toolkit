@@ -11,14 +11,14 @@ namespace DustInTheWind.Mintos.Toolkit;
 /// </remarks>
 public class StatementDocument : Collection<TransactionRecord>
 {
-	public static async Task<StatementDocument> LoadFromFileAsync(string filePath)
+	public static async Task<StatementDocument> LoadFromFileAsync(string filePath, CancellationToken cancellationToken = default)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
 		try
 		{
 			using StreamReader streamReader = File.OpenText(filePath);
-			return await LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader, cancellationToken);
 		}
 		catch (DocumentLoadException)
 		{
@@ -30,14 +30,14 @@ public class StatementDocument : Collection<TransactionRecord>
 		}
 	}
 
-	public static async Task<StatementDocument> LoadAsync(string csv)
+	public static async Task<StatementDocument> LoadAsync(string csv, CancellationToken cancellationToken = default)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(csv);
 
 		try
 		{
 			using StringReader stringReader = new(csv);
-			return await LoadInternalAsync(stringReader);
+			return await LoadInternalAsync(stringReader, cancellationToken);
 		}
 		catch (DocumentLoadException)
 		{
@@ -49,14 +49,14 @@ public class StatementDocument : Collection<TransactionRecord>
 		}
 	}
 
-	public static async Task<StatementDocument> LoadAsync(Stream stream)
+	public static async Task<StatementDocument> LoadAsync(Stream stream, CancellationToken cancellationToken = default)
 	{
 		ArgumentNullException.ThrowIfNull(stream);
 
 		try
 		{
 			using StreamReader streamReader = new(stream);
-			return await LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader, cancellationToken);
 		}
 		catch (DocumentLoadException)
 		{
@@ -68,14 +68,14 @@ public class StatementDocument : Collection<TransactionRecord>
 		}
 	}
 
-	public static async Task<StatementDocument> LoadAsync(FileInfo fileInfo)
+	public static async Task<StatementDocument> LoadAsync(FileInfo fileInfo, CancellationToken cancellationToken = default)
 	{
 		ArgumentNullException.ThrowIfNull(fileInfo);
 
 		try
 		{
 			using StreamReader streamReader = fileInfo.OpenText();
-			return await LoadInternalAsync(streamReader);
+			return await LoadInternalAsync(streamReader, cancellationToken);
 		}
 		catch (DocumentLoadException)
 		{
@@ -87,28 +87,28 @@ public class StatementDocument : Collection<TransactionRecord>
 		}
 	}
 
-	public static Task<StatementDocument> LoadAsync(StreamReader streamReader)
+	public static Task<StatementDocument> LoadAsync(StreamReader streamReader, CancellationToken cancellationToken = default)
 	{
 		ArgumentNullException.ThrowIfNull(streamReader);
 
-		return LoadInternalAsync(streamReader);
+		return LoadInternalAsync(streamReader, cancellationToken);
 	}
 
-	public static Task<StatementDocument> LoadAsync(TextReader textReader)
+	public static Task<StatementDocument> LoadAsync(TextReader textReader, CancellationToken cancellationToken = default)
 	{
 		ArgumentNullException.ThrowIfNull(textReader);
 
-		return LoadInternalAsync(textReader);
+		return LoadInternalAsync(textReader, cancellationToken);
 	}
 
-	private static async Task<StatementDocument> LoadInternalAsync(TextReader textReader)
+	private static async Task<StatementDocument> LoadInternalAsync(TextReader textReader, CancellationToken cancellationToken)
 	{
 		try
 		{
 			CsvStatementDocument csvStatementDocument = new(textReader);
 			StatementDocument statementDocument = [];
 
-			await foreach (TransactionRecord transactionRecord in csvStatementDocument.ReadTransactions())
+			await foreach (TransactionRecord transactionRecord in csvStatementDocument.ReadTransactions(cancellationToken))
 				statementDocument.Add(transactionRecord);
 
 			return statementDocument;

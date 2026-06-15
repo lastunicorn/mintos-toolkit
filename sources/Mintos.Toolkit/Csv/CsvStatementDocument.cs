@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
@@ -62,7 +63,7 @@ internal class CsvStatementDocument
 		}
 	}
 
-	public async IAsyncEnumerable<TransactionRecord> ReadTransactions()
+	public async IAsyncEnumerable<TransactionRecord> ReadTransactions([EnumeratorCancellation] CancellationToken cancellationToken = default)
 	{
 		if (state == CsvDocumentReadState.HeaderRow)
 			_ = ReadHeaders();
@@ -81,6 +82,9 @@ internal class CsvStatementDocument
 
 		while (true)
 		{
+			if (cancellationToken.IsCancellationRequested)
+				throw new OperationCanceledException();
+			
 			bool hasRecord = await MoveToNextRecord();
 
 			if (!hasRecord)
