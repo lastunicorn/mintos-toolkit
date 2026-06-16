@@ -84,7 +84,7 @@ internal class CsvStatementDocument
 		{
 			if (cancellationToken.IsCancellationRequested)
 				throw new OperationCanceledException();
-			
+
 			bool hasRecord = await MoveToNextRecord();
 
 			if (!hasRecord)
