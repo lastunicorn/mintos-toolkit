@@ -1,4 +1,5 @@
-﻿using DustInTheWind.ConsoleTools.Controls;
+﻿using System.Globalization;
+using DustInTheWind.ConsoleTools.Controls;
 using DustInTheWind.ConsoleTools.Controls.Tables;
 
 namespace DustInTheWind.Mintos.Toolkit.Demo;
@@ -12,9 +13,7 @@ internal static class Program
 		try
 		{
 			StatementDocument document = await StatementDocument.LoadFromFileAsync(fileName);
-
-			DataGrid dataGrid = Display(document);
-			dataGrid.Display();
+			Display(document);
 		}
 		catch (DocumentLoadException ex)
 		{
@@ -28,7 +27,7 @@ internal static class Program
 		}
 	}
 
-	private static DataGrid Display(StatementDocument document)
+	private static void Display(StatementDocument document)
 	{
 		DataGrid dataGrid = new()
 		{
@@ -50,11 +49,11 @@ internal static class Program
 				transaction.Date.ToString("yyyy-MM-dd HH:mm:ss"),
 				transaction.TransactionId?.Truncate(30),
 				transaction.Details?.Truncate(30),
-				transaction.Turnover.ToString(),
-				transaction.Balance.ToString(),
+				transaction.Turnover.ToString(CultureInfo.CurrentCulture),
+				transaction.Balance.ToString(CultureInfo.CurrentCulture),
 				transaction.Currency,
 				transaction.PaymentType);
 
-		return dataGrid;
+		dataGrid.Display();
 	}
 }
