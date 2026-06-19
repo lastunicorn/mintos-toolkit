@@ -45,6 +45,7 @@ internal static class Program
 		dataGrid.Columns.Add("Payment Type");
 
 		foreach (TransactionRecord transaction in document)
+		{
 			dataGrid.Rows.Add(
 				transaction.Date.ToString("yyyy-MM-dd HH:mm:ss"),
 				transaction.TransactionId?.Truncate(30),
@@ -53,6 +54,7 @@ internal static class Program
 				transaction.Balance.ToString(CultureInfo.CurrentCulture),
 				transaction.Currency,
 				transaction.PaymentType);
+		}
 
 		dataGrid.Display();
 	}
