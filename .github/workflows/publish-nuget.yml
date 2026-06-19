@@ -8,7 +8,7 @@ on:
     inputs:
       package_version:
         description: "Stable package version (required for manual runs)"
-        required: false
+        required: true
         type: string
 
 permissions:
