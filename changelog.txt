@@ -4,6 +4,7 @@ Mintos Toolkit
 v1.4.0
 --------------------------------------------------------------------------------
 [new   ] Added CancelationToken parameter to all Load methods.
+[new   ] Added debug support by providing a snupkg file.
 
 
 v1.3.0
