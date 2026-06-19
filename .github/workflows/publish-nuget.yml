@@ -66,6 +66,7 @@ jobs:
       - name: Build
         run: |
           dotnet build ./Mintos.Toolkit.slnx -c Release --no-restore \
+            -p:ContinuousIntegrationBuild=true \
             -p:Version="${{ steps.version.outputs.package_version }}" \
             -p:PackageVersion="${{ steps.version.outputs.package_version }}" \
             -p:AssemblyVersion="${{ steps.version.outputs.package_version }}" \
