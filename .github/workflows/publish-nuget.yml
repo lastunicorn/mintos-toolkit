@@ -78,7 +78,9 @@ jobs:
           dotnet pack ./sources/Mintos.Toolkit/Mintos.Toolkit.csproj \
             -c Release \
             --no-build \
+            --include-symbols \
             -o ./artifacts \
+            -p:SymbolPackageFormat=snupkg \
             -p:Version="${{ steps.version.outputs.package_version }}" \
             -p:PackageVersion="${{ steps.version.outputs.package_version }}" \
             -p:AssemblyVersion="${{ steps.version.outputs.package_version }}" \
@@ -90,7 +92,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nuget-package
-          path: ./artifacts/*.nupkg
+          path: ./artifacts/*.{nupkg,snupkg}
 
       - name: Validate packed version
         shell: bash
@@ -103,6 +105,10 @@ jobs:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
           dotnet nuget push "./artifacts/*.nupkg" \
+            --api-key "$NUGET_API_KEY" \
+            --source "https://api.nuget.org/v3/index.json" \
+            --skip-duplicate
+          dotnet nuget push "./artifacts/*.snupkg" \
             --api-key "$NUGET_API_KEY" \
             --source "https://api.nuget.org/v3/index.json" \
             --skip-duplicate
