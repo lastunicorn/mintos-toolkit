@@ -49,9 +49,9 @@ You will get a CSV containing transaction rows that can be parsed with this tool
 ```csharp
 using DustInTheWind.Mintos.Toolkit;
 
-StatementDocument document = StatementDocument.LoadFromFile("statement.csv");
+StatementDocument statementDocument = await StatementDocument.LoadFromFileAsync("statement.csv");
 
-foreach (TransactionRecord transaction in document)
+foreach (TransactionRecord transaction in statementDocument)
 {
 	...
 }
@@ -63,13 +63,13 @@ Each row is mapped to a `TransactionRecord` with the following columns:
 
 | CSV Column      | Type     | TransactionRecord Property | Description                                         |
 |-----------------|----------|--------------------------|-----------------------------------------------------|
-| `Date`          | DateTime | `Date`                   | The date when the transaction occurred.             |
-| `Transaction ID:`| string   | `TransactionId`         | A unique identifier for the transaction.            |
-| `Details`       | string   | `Details`                | Additional details or description of the transaction.|
-| `Turnover`      | decimal   | `Turnover`               | The transaction amount.                             |
-| `Balance`       | decimal   | `Balance`                | The account balance after the transaction.         |
-| `Currency`      | string   | `Currency`               | The currency code (e.g., EUR, USD).                |
-| `Payment Type`  | string   | `PaymentType`            | The type of payment (e.g., Deposit, Withdrawal, Interest).|
+| `Date`          | `DateTime` | `Date`                   | The date when the transaction occurred.             |
+| `Transaction ID:`| `string` | `TransactionId`         | A unique identifier for the transaction.            |
+| `Details`       | `string` | `Details`                | Additional details or description of the transaction.|
+| `Turnover`      | `decimal` | `Turnover`               | The transaction amount.                             |
+| `Balance`       | `decimal` | `Balance`                | The account balance after the transaction.         |
+| `Currency`      | `string` | `Currency`               | The currency code (e.g., EUR, USD).                |
+| `Payment Type`  | `string` | `PaymentType`            | The type of payment (e.g., Deposit, Withdrawal, Interest).|
 
 ## Demo Project
 
