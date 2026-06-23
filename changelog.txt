@@ -1,12 +1,14 @@
 Mintos Toolkit
 ================================================================================
 
-v1.5.0 (breaking changes)
+v1.5.0 (breaking changes - small)
 --------------------------------------------------------------------------------
 [new   ] Added PaymentTypeLabels class that provides the texts displayed by
          Mintos in the web page for each payment type.
 [change] Added more values in the KnownValues for PaymentType.
 [change] Renamed some of the values from the PaymentType (breaking change).
+[new   ] Added StatementDocuments to help loading multiple CSV statement files
+		 from a directory. Recursive search is supported.
 
 
 v1.4.1

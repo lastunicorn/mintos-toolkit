@@ -5,9 +5,11 @@ namespace DustInTheWind.Mintos.Toolkit;
 
 /// <summary>
 /// Represents a Mintos statement document.
+/// The data is loaded from a CSV file from file system or from memory, from a CSV string,
+/// <see cref="Stream"/>, <see cref="StreamReader"/> or <see cref="TextReader"/>.
 /// </summary>
 /// <remarks>
-/// The structure of the csv file is the one that is exported from the Mintos app (2026).
+/// The expected structure of the CSV file is the one that is exported from the Mintos website (2026).
 /// </remarks>
 public class StatementDocument : Collection<TransactionRecord>
 {
