@@ -3,19 +3,19 @@ namespace DustInTheWind.Mintos.Toolkit;
 /// <summary>
 /// Represents a transaction.
 /// </summary>
-public class TransactionRecord
+public record class TransactionRecord
 {
-	public DateTime Date { get; init; }
+	public DateTime Date { get; set; }
 
-	public string TransactionId { get; init; }
+	public string TransactionId { get; set; }
 
-	public string Details { get; init; }
+	public string Details { get; set; }
 
-	public decimal Turnover { get; init; }
+	public decimal Turnover { get; set; }
 
-	public decimal Balance { get; init; }
+	public decimal Balance { get; set; }
 
-	public Currency Currency { get; init; }
+	public Currency Currency { get; set; }
 
-	public PaymentType PaymentType { get; init; }
+	public PaymentType PaymentType { get; set; }
 }
