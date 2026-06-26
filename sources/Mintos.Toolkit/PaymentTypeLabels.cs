@@ -27,7 +27,7 @@ public static class PaymentTypeLabels
 		[PaymentType.MintosCoreFee] = "Loan Portfolios fee",
 		[PaymentType.MintosCustomLoansFee] = "Loan Portfolios fee",
 	};
-	
+
 	/// <summary>
 	/// In the mintos statements page, there is an overview section that shows the total amount of each payment type.
 	/// The labels used in that section are different from the values of <see cref="PaymentType"/>.

@@ -21,7 +21,7 @@ public class StatementDocuments : IEnumerable<StatementDocument>
 		IEnumerable<string> filePaths = GetFilePaths(path, options);
 
 		Predicate<string> filePathFilter = options?.FilePathFilter;
-		
+
 		if (filePathFilter != null)
 			filePaths = filePaths.Where(x => filePathFilter(x));
 
@@ -50,11 +50,11 @@ public class StatementDocuments : IEnumerable<StatementDocument>
 		if (Directory.Exists(path))
 		{
 			string filePattern = options?.FilePattern ?? "*.csv";
-			
+
 			SearchOption searchOption = options?.Recursive == true
 				? SearchOption.AllDirectories
 				: SearchOption.TopDirectoryOnly;
-			
+
 			return Directory.EnumerateFiles(path, filePattern, searchOption);
 		}
 
