@@ -1,6 +1,11 @@
 Mintos Toolkit
 ================================================================================
 
+v1.6.0
+--------------------------------------------------------------------------------
+[change] Upgraded CsvHelper package reference to version 33.1.0
+
+
 v1.5.0 (breaking changes - small)
 --------------------------------------------------------------------------------
 [new   ] Added PaymentTypeLabels class that provides the texts displayed by
